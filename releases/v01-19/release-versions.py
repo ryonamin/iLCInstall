@@ -54,17 +54,18 @@ export LD_LIBRARY_PATH=/cvmfs/sft.cern.ch/lcg/external/Python/2.7.4/x86_64-slc6-
 # ===========================================================
 #
 
-ilcsoft_install_prefix = ilcsoft_afs_path[ arch ]
+#ilcsoft_install_prefix = ilcsoft_afs_path[ arch ]
 #ilcsoft_install_prefix = "/cvmfs/ilc.desy.de/sw/x86_64_gcc48_sl6/"
 #ilcsoft_install_prefix = "/scratch/ilcsoft/"
+ilcsoft_install_prefix = "/opt/ilcsoft/"
 
 # ----------------------------------------------------------------------------
 #--- the ilcsoft_release is now automatically appended in release-ilcsoft.cfg 
 #     but not in release-base.cfg !!
 
-#append_version_to_install_prefix = False
-#if(append_version_to_install_prefix):
-#    ilcsoft_install_dir = os.path.join(ilcsoft_install_prefix , ilcsoft_release )
+append_version_to_install_prefix = True 
+if(append_version_to_install_prefix):
+    ilcsoft_install_dir = os.path.join(ilcsoft_install_prefix , ilcsoft_release )
 
 # ----------------------------------------------------------------------------
 
@@ -93,18 +94,21 @@ ilcPath = ilcsoft_install_prefix
 # please adjust the path variables accordingly
 
 # ----- mysql --------------------------------------------------------
-MySQL_version = "5.0.45"
-MySQL_path = ilcPath + "/mysql/" + MySQL_version
+#MySQL_version = "5.0.45"
+#MySQL_path = ilcPath + "/mysql/" + MySQL_version
+MySQL_path = "/usr"
 
-if( ilcsoft_afs_path[ arch ].find('_ub') > 0 ):
-    MySQL_path = "/usr"
+#if( ilcsoft_afs_path[ arch ].find('_ub') > 0 ):
+#    MySQL_path = "/usr"
 
 
 #------ boost headers files ------------------------------------------
-Boost_path = ilcPath+"/../boost/1.58.0"
+#Boost_path = ilcPath+"/../boost/1.58.0"
+Boost_path = "/usr"
 
 #------ Eigen headers files ------------------------------------------
-Eigen_path =  ilcPath+"/../Eigen/3.2.9"
+#Eigen_path =  ilcPath+"/../Eigen/3.2.9"
+Eigen_path =  "/usr"
 
 
 ##########################################################################################
@@ -232,7 +236,8 @@ Physsim_version = "v00-04"
 
 
 # xerces-c (needed by geant4 for building gdml support - required by mokka)
-XERCESC_ROOT_DIR = ilcPath + "/xercesc/3.1.4"
+#XERCESC_ROOT_DIR = ilcPath + "/xercesc/3.1.4"
+XERCESC_ROOT_DIR = ilcPath + "/xercesc/3.2.0"
 
-XercesC_version = "3.1.4" 
+XercesC_version = "3.2.0" 
 
